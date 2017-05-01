@@ -1,9 +1,9 @@
 from setuptools import setup
 
 setup(
-  name = 'bellapy',
+  name = 'bella',
   version = '0.0.1',
-  packages = ['bellapy'],
+  packages = ['bella'],
   description = 'Utils for Python',
 
   url = 'https://github.com/ndaidong/bellapy',

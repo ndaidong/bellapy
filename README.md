@@ -17,13 +17,26 @@ BellaPy - A useful helper for any python program
 ## Setup
 
   ```
-  pip install bellapy
+  pip install bella
 
   // or local install
   pip install -e git+https://github.com/ndaidong/bellapy.git
   ```
 
 # APIs
+
+- createId(int leng = 16)
+
+Return a random string
+
+```
+from bella import createId
+
+print(createId())
+print(createId(32))
+print(createId(40))
+```
+
 
 // coming soon
 
