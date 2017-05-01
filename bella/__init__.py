@@ -22,5 +22,4 @@ def md5(txt = ''):
     return m.hexdigest()
   return ''
 
-
 __all__ = ['createId', 'md5']

@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
   name = 'bella',
-  version = '0.0.2',
+  version = '0.0.3',
   packages = ['bella'],
   description = 'Utils for Python',
 
@@ -36,7 +36,7 @@ setup(
 
   entry_points = {
     'console_scripts': [
-      'bella=bella',
+      'bella=bella.__main__:main',
     ],
   },
 )
