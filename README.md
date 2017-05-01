@@ -3,6 +3,7 @@ BellaPy - A useful helper for any python program
 
 
 [![Build Status](https://travis-ci.org/ndaidong/bellapy.svg?branch=master)](https://travis-ci.org/ndaidong/bellapy)
+[![Coverage Status](https://coveralls.io/repos/github/ndaidong/bellapy/badge.svg?branch=master)](https://coveralls.io/github/ndaidong/bellapy?branch=master)
 
 
 # Contents
