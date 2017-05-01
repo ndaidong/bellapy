@@ -36,7 +36,7 @@ setup(
 
   entry_points = {
     'console_scripts': [
-      'bella=bella',
+      'bella=bella.__main__:main',
     ],
   },
 )
