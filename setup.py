@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
   name = 'bella',
-  version = '0.0.1',
+  version = '0.0.2',
   packages = ['bella'],
   description = 'Utils for Python',
 
