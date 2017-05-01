@@ -9,6 +9,7 @@ setup(
   url = 'https://github.com/ndaidong/bellapy',
 
   author = '@ndaidong',
+  author_email = 'ndaidong@protonmail.com',
 
   license = 'MIT',
 
