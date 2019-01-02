@@ -32,7 +32,7 @@ setup(
 
     keywords='detection, manipulation, datetime, utils, helpers',
 
-    install_requires=[],
+    install_requires=['python-dateutil'],
 
     extras_require={
         'test': ['pycodestyle', 'safety', 'pytest'],
