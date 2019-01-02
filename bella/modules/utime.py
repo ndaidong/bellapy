@@ -2,6 +2,7 @@
 
 from time import time
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 
 DEFAULT_PATTERN = '%a, %b %d, %Y %H:%M:%S %p'
@@ -18,13 +19,11 @@ def format_time(d=datetime.now(), pattern=DEFAULT_PATTERN):
 
 
 def get_local_time():
-    now = datetime.now()
-    return format_time(now)
+    return format_time(datetime.now())
 
 
 def get_utc_time():
-    now = datetime.utcnow()
-    return format_time(now)
+    return format_time(datetime.utcnow())
 
 
 def get_times_distance(t0, t1):
