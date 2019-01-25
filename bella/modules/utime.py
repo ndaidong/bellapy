@@ -5,7 +5,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 
-DEFAULT_PATTERN = '%a, %b %d, %Y %H:%M:%S %p'
+DEFAULT_PATTERN = '%a, %b %d, %Y %H:%M:%S'
 
 
 def get_time(ms=False):
