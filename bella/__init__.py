@@ -14,6 +14,8 @@ from .modules.utime import get_time, format_time, \
 from .modules.detector import is_int, is_num, is_float, is_str, \
     is_list, is_dict
 
+from .modules.utils import throttle
+
 
 def version():
     f = os.path.dirname(os.path.realpath(__file__))

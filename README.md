@@ -153,6 +153,18 @@ Remove given file or folder, then return result as Boolean
 Copy file or folder `source` into `dest`, then return result as Boolean
 
 
+### Utils
+
+
+```python
+from bella import throttle
+
+
+@throttle(5)
+def fn():
+    print('Hello, delay 5 seconds...')
+```
+
 
 # Dev & Test
 
