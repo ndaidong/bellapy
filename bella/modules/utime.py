@@ -4,6 +4,7 @@ from time import time
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
+from .detector import is_num
 
 DEFAULT_PATTERN = '%a, %b %d, %Y %H:%M:%S'
 
@@ -15,6 +16,8 @@ def get_time(ms=False):
 
 
 def format_time(d=datetime.now(), pattern=DEFAULT_PATTERN):
+    if is_num(d):
+        d = datetime.fromtimestamp(d)
     return d.strftime(pattern)
 
 

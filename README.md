@@ -161,8 +161,18 @@ from bella import throttle
 
 
 @throttle(5)
-def fn():
-    print('Hello, delay 5 seconds...')
+def fn(a):
+    print('No call multi times within 5 seconds')
+    print(a)
+
+
+fn(1)
+fn(2)
+fn(3)
+fn(4)
+fn(5)
+fn(6)
+fn(7)
 ```
 
 
