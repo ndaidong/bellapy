@@ -6,7 +6,7 @@ from argparse import ArgumentParser
 from .modules import fs
 from .modules import hw
 
-from .modules.text import genid, md5, md160
+from .modules.text import genid, md5, md160, pluralize
 
 from .modules.utime import get_time, format_time, \
     get_local_time, get_utc_time, get_times_distance

@@ -69,7 +69,7 @@ md160('hello')  # --> 108f07b8382412612c048d07d13f814118445acd
 Return plural form of a noun:
 
 ```python
-from bella.text import plurialize
+from bella import plurialize
 
 plurialize('leaf', 1)  # => leaf
 plurialize('leaf', 2)  # => leaves
