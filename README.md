@@ -64,6 +64,17 @@ Return md160 hashed string
 md160('hello')  # --> 108f07b8382412612c048d07d13f814118445acd
 ```
 
+### Plurialize
+
+Return plural form of a noun:
+
+```python
+from bella import plurialize
+
+plurialize('leaf', 1)  # => leaf
+plurialize('leaf', 2)  # => leaves
+
+```
 
 ### Detection
 
@@ -142,19 +153,31 @@ Return MAC address of current device
 from bella import fs
 ```
 
-- `fs.remove(path)`
-
-
-Remove given file or folder, then return result as Boolean
-
 - `fs.copy(source, dest)`
-
 
 Copy file or folder `source` into `dest`, then return result as Boolean
 
 
+- `fs.remove(path)`
+
+Remove given file or folder, then return result as Boolean
+
+
+- `fs.write_json_to_file(file_path, json_data)`
+
+Write JSON data into given file path
+
+
+- `fs.read_json_from_file(file_path)`
+
+Return JSON data from given file
+
+
+
 ### Utils
 
+
+- `throttle` decorator
 
 ```python
 from bella import throttle
@@ -175,6 +198,20 @@ fn(6)
 fn(7)
 ```
 
+- `timing` decorator
+
+```python
+from bella import timing, fs
+
+@timing('save_item')
+def save_item(data):
+    write_json_to_file('./cache.json', data)
+
+
+save_item(dict(name='Alice'))
+# output:
+# Timing for save_item: 0.00134 s
+```
 
 # Dev & Test
 
