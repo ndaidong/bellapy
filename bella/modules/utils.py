@@ -42,8 +42,7 @@ def jprint(data, sorting=True, identation=2):
         return print(json.dumps(
             data, sort_keys=sorting, indent=identation
         ))
-    except Exception as err:
-        print(err)
+    except Exception:
         pass
     return print(data)
 
@@ -51,8 +50,7 @@ def jprint(data, sorting=True, identation=2):
 def to_str(v):
     try:
         return str(v)
-    except Exception as err:
-        print(err)
+    except Exception:
         pass
     return v
 
@@ -60,7 +58,6 @@ def to_str(v):
 def to_int(v):
     try:
         return int(v)
-    except Exception as err:
-        print(err)
+    except Exception:
         pass
     return v

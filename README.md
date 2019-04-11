@@ -205,7 +205,7 @@ from bella import timing, fs
 
 @timing('save_item')
 def save_item(data):
-    write_json_to_file('./cache.json', data)
+    fs.write_json_to_file('./cache.json', data)
 
 
 save_item(dict(name='Alice'))

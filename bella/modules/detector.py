@@ -6,8 +6,7 @@ from urllib.parse import urlparse
 def is_int(val=None):
     try:
         return int(val) == val
-    except Exception as err:
-        print(err)
+    except Exception:
         pass
     return False
 
@@ -15,8 +14,7 @@ def is_int(val=None):
 def is_num(val=None):
     try:
         return float(val) == val
-    except Exception as err:
-        print(err)
+    except Exception:
         pass
     return False
 
@@ -28,8 +26,7 @@ def is_float(val=None):
 def is_str(val=None):
     try:
         return str(val) == val
-    except Exception as err:
-        print(err)
+    except Exception:
         pass
     return False
 
@@ -37,8 +34,7 @@ def is_str(val=None):
 def is_list(val=None):
     try:
         return isinstance(val, list)
-    except Exception as err:
-        print(err)
+    except Exception:
         pass
     return False
 
@@ -46,8 +42,7 @@ def is_list(val=None):
 def is_dict(val=None):
     try:
         return isinstance(val, dict)
-    except Exception as err:
-        print(err)
+    except Exception:
         pass
     return False
 
@@ -56,7 +51,6 @@ def is_valid_url(url):
     try:
         result = urlparse(url)
         return all([result.scheme, result.netloc, result.path])
-    except Exception as err:
-        print(err)
+    except Exception:
         pass
     return False
