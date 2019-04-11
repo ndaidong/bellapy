@@ -120,7 +120,6 @@ def pluralize(word=None, count=1):
             return word + 'es'
         if word[-2:] in ('ch', 'sh'):
             return word + 'es'
-    except Exception as err:
-        print(err)
+    except Exception:
         pass
     return word + 's'
