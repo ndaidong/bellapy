@@ -11,7 +11,8 @@ def get_ip():
         ipaddr = s.getsockname()[0]
         s.close()
         return ipaddr
-    except Exception:
+    except Exception as err:
+        print(err)
         pass
     return ''
 
@@ -23,6 +24,7 @@ def get_mac():
                 0, 8*6, 8
             )][::-1]
         ))
-    except Exception:
+    except Exception as err:
+        print(err)
         pass
     return ''

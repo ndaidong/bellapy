@@ -12,9 +12,9 @@ from .modules.utime import get_time, format_time, \
     get_local_time, get_utc_time, get_times_distance
 
 from .modules.detector import is_int, is_num, is_float, is_str, \
-    is_list, is_dict
+    is_list, is_dict, is_valid_url
 
-from .modules.utils import throttle
+from .modules.utils import throttle, timing, jprint
 
 
 def version():
