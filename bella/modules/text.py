@@ -42,26 +42,45 @@ def md160(txt=''):
 # http://code.activestate.com/recipes/577781-pluralize-word-convert-singular-word-to-its-plural/
 
 ABERRANT_PLURAL_MAP = {
+    'antenna': 'algae',
     'appendix': 'appendices',
+    'baggage': 'baggage',
     'barracks': 'barracks',
-    'cactus': 'cacti',
+    'corpus': 'corpora',
     'child': 'children',
-    'criterion': 'criteria',
     'deer': 'deer',
     'focus': 'foci',
     'fungus': 'fungi',
+    'furniture': 'furniture',
+    'genus': 'genera',
     'goose': 'geese',
     'index': 'indices',
+    'information': 'information',
+    'larva': 'larvae',
+    'luggage': 'luggage',
     'man': 'men',
     'mouse': 'mice',
+    'news': 'news',
     'nucleus': 'nuclei',
     'person': 'people',
-    'phenomenon': 'phenomena',
     'syllabus': 'syllabi',
+    'vertebra': 'vertebrae',
     'woman': 'women',
 }
 
 VOWELS = set('aeiou')
+
+NORMAL_O_ENDS = [
+    'auto',
+    'kilo',
+    'memo',
+    'photo',
+    'piano',
+    'pimento',
+    'pro',
+    'solo',
+    'soprano'
+]
 
 
 def pluralize(word=None, count=1):
@@ -77,7 +96,17 @@ def pluralize(word=None, count=1):
     try:
         if word[-1] == 'y' and word[-2] not in VOWELS:
             return word[:-1] + 'ies'
-        if word[-1] == 'x' or word[-1] == 'o':
+        if word[-2:] == 'is':
+            return word[:-2] + 'es'
+        if word[-2:] == 'us':
+            return word[:-2] + 'i'
+        if word[-2:] == 'on' or word[-2:] == 'um':
+            return word[:-2] + 'a'
+        if word[-1] == 'x':
+            return word + 'es'
+        if word[-1] == 'o':
+            if word in NORMAL_O_ENDS or word[-2] in VOWELS:
+                return word + 's'
             return word + 'es'
         if word[-1] == 'f':
             return word[:-1] + 'ves'
