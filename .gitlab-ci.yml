@@ -1,0 +1,25 @@
+image: python:3.6.7
+
+stages:
+  - lint
+  - safety
+  - test
+
+before_script:
+  - pip install -r requirements.txt
+  - python setup.py install
+
+linting:
+  stage: lint
+  script:
+    - pycodestyle ./ --exclude venv --statistics
+
+safety:
+  stage: safety
+  script:
+    - safety check --bare
+
+testing:
+  stage: test
+  script:
+    - pytest tests/*
