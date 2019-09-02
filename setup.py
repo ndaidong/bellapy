@@ -17,7 +17,7 @@ setup(
     long_description=README,
     long_description_content_type="text/markdown",
 
-    url='https://gitlab.com/ndaidong/bellapy',
+    url='https://github.com/ndaidong/bellapy',
 
     author='@ndaidong',
     author_email='ndaidong@gmail.com',
@@ -32,7 +32,7 @@ setup(
 
     keywords='detection, manipulation, datetime, utils, helpers',
 
-    install_requires=['python-dateutil'],
+    install_requires=[],
 
     extras_require={
         'test': ['pycodestyle', 'safety', 'pytest'],

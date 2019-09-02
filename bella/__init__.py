@@ -1,41 +1,22 @@
 #!/usr/bin/env python3
 
-import os
-from argparse import ArgumentParser
-
 from .modules import fs
-from .modules import hw
-
-from .modules.text import genid, md5, md160, pluralize
-
-from .modules.utime import get_time, format_time, \
-    get_local_time, get_utc_time, get_times_distance
 
 from .modules.detector import is_int, is_num, is_float, is_str, \
-    is_list, is_dict, is_valid_url
+    is_bool, is_list, is_dict, is_valid_url
 
-from .modules.utils import throttle, timing, jprint
+from .modules.text import genid, slugify, remove_tags, pluralize, \
+    md5, md160, sha256
+
+from .modules.utime import get_time, get_local_time, get_utc_time, \
+    format_time, PY_DATE_PATTERN, MY_DATE_PATTERN
+
+from .modules.utils import throttle, timing, jprint, \
+    write_json_to_file, read_json_from_file, \
+    byte_to_text, get_base_url, has_installed, \
+    compose, pipe, curry
 
 
 def version():
     f = os.path.dirname(os.path.realpath(__file__))
     return open(f + '/VERSION').read().strip()
-
-
-def init():
-    parser = ArgumentParser()
-    parser.add_argument(
-        '-v',
-        '--version',
-        default='',
-        action='store_true',
-        help='check version'
-    )
-    args = parser.parse_args()
-    ver = args.version
-    if ver:
-        return print('bella v{}'.format(version()))
-
-
-if __name__ == '__main__':
-    init()

@@ -1,25 +1,23 @@
-image: python:3.6.7
-
-stages:
-  - lint
-  - safety
-  - test
-
-before_script:
-  - pip install -r requirements.txt
-  - python setup.py install
-
-linting:
-  stage: lint
+test:pytest:35:
+  image: python:3.5-alpine
   script:
-    - pycodestyle ./ --exclude venv --statistics
+    - pip install -r requirements.txt
+    - ./test.sh
 
-safety:
-  stage: safety
+test:pytest:36:
+  image: python:3.6-alpine
   script:
-    - safety check --bare
+    - pip install -r requirements.txt
+    - ./test.sh
 
-testing:
-  stage: test
+test:pytest:37:
+  image: 3.7.4-alpine
   script:
-    - pytest tests/*
+    - pip install -r requirements.txt
+    - ./test.sh
+
+test:pytest:38:
+  image: python:3.8.0b3-alpine3.10
+  script:
+    - pip install -r requirements.txt
+    - ./test.sh
