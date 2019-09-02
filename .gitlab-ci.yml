@@ -1,3 +1,9 @@
+test:pytest:35:
+  image: python:3.5-alpine
+  script:
+    - pip install -r requirements.txt
+    - sh ./test.sh
+
 test:pytest:36:
   image: python:3.6-alpine
   script:
@@ -5,7 +11,7 @@ test:pytest:36:
     - sh ./test.sh
 
 test:pytest:37:
-  image: 3.7-alpine
+  image: python:3.7-alpine
   script:
     - pip install -r requirements.txt
     - sh ./test.sh
