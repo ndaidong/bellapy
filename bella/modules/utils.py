@@ -126,8 +126,8 @@ def compose(*fns):
 
 def pipe(*fns):
     return reduce(
-        lambda f, g: lambda x: f(g(x)),
-        fns.reverse(),
+        lambda f, g: lambda x: g(f(x)),
+        fns,
         lambda x: x
     )
 
