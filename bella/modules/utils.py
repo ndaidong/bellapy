@@ -133,15 +133,9 @@ def pipe(*fns):
 
 
 def curry(func):
-    f_args = []
-    f_kwargs = {}
-
-    def f(*args, **kwargs):
-        nonlocal f_args, f_kwargs
-        if args or kwargs:
-            f_args += args
-            f_kwargs.update(kwargs)
-            return f
-        else:
-            return func(*f_args, *f_kwargs)
-    return f
+    def curried(*args, **kwargs):
+        if len(args) + len(kwargs) >= func.__code__.co_argcount:
+            return func(*args, **kwargs)
+        return (lambda *args2, **kwargs2:
+                curried(*(args + args2), **dict(kwargs, **kwargs2)))
+    return curried

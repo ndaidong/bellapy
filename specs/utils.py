@@ -38,6 +38,45 @@ def test_byte_to_text():
             ))
 
 
+def test_curry():
+
+    def normal_sum(a, b, c):
+        return a + b + c
+
+    curried_sum = curry(normal_sum)
+
+    samples = [
+        dict(
+            fn_str='curried_sum(3, 2, 1)',
+            actual=curried_sum(3, 2, 1),
+            expect=6
+        ),
+        dict(
+            fn_str='curried_sum(3, 2)(1)',
+            actual=curried_sum(3, 2)(1),
+            expect=6
+        ),
+        dict(
+            fn_str='curried_sum(3)(2, 1)',
+            actual=curried_sum(3)(2, 1),
+            expect=6
+        ),
+        dict(
+            fn_str='curried_sum(3)(2)(1)',
+            actual=curried_sum(3)(2)(1),
+            expect=6
+        )
+    ]
+    for sample in samples:
+        fn_str = sample['fn_str']
+        actual = sample['actual']
+        expect = sample['expect']
+        if actual != expect:
+            pytest.fail('{} must return `{}`, not `{}`'.format(
+                fn_str, expect, actual
+            ))
+
+
 def test_compose():
 
     def add1(x):
