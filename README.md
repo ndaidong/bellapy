@@ -2,7 +2,7 @@
 BellaPy - A useful helper for any python program
 
 [![PyPI version](https://badge.fury.io/py/bella.svg)](https://badge.fury.io/py/bella)
-[![Build Status](https://gitlab.com/ndaidong/bellapy/badges/master/build.svg)](https://gitlab.com/ndaidong/bellapy/pipelines)
+[![Build Status](https://travis-ci.org/ndaidong/bellapy.svg?branch=master)](https://travis-ci.org/ndaidong/bellapy)
 
 
 ## Contents
@@ -64,6 +64,37 @@ Return md160 hashed string
 md160('hello')  # --> 108f07b8382412612c048d07d13f814118445acd
 ```
 
+
+- `sha256(password, salt, dkpower)`
+
+Return sha256 hashed string
+
+
+```python
+sha256('1234', 'v23')
+# --> 457b01a0f6169725
+
+# dkpower relates to length of output, default is 3
+# output length = 2 ** (dkpower + 1)
+# for example with dkpower = 4 --> output length = 2 ** 5 = 32
+sha256('1234', 'v23', dkpower=4)
+# --> 457b01a0f61697250083c598f7b8a8fd
+```
+
+
+### Slugify
+
+
+```python
+from bella import slugify
+
+slugify('BellaPy - A useful helper for any python program')
+# => bellapy-a-useful-helper-for-any-python-program
+
+slugify('Ngày hội “đám mây” của Amazon')
+# => ngay-hoi-dam-may-cua-amazon
+```
+
 ### Plurialize
 
 Return plural form of a noun:
@@ -89,6 +120,10 @@ Return True if value is float
 - `is_num(value)`
 
 Return True if value is number
+
+- `is_bool(value)`
+
+Return True if value is boolean
 
 - `is_str(value)`
 
@@ -122,28 +157,6 @@ Return current datetime of local system
 - `get_utc_time()`
 
 Return current UCT datetime
-
-- `get_times_distance(time_1, time_2)`
-
-Return distance between 2 timepoints, in the friendly format such as `1d 3h 4m 5s`.
-
-
-### Hardware
-
-
-```python
-from bella import hw
-```
-
-
-- `hw.get_ip()`
-
-Return IP address of current machine
-
-
-- `hw.get_mac()`
-
-Return MAC address of current device
 
 
 ### Filesystem
@@ -216,20 +229,12 @@ save_item(dict(name='Alice'))
 # Dev & Test
 
 ```bash
-git clone https://gitlab.com/ndaidong/bellapy.git
+git clone https://github.com/ndaidong/bellapy.git
 cd bellapy
 python3 -m venv venv
 source venv/bin/activate
-
-# clean previous build
-(venv) ./clean
-
-# build
-(venv) python setup.py install
-
-# install packages for test
 (venv) pip install -r requirements.txt
-(venv) ./qualify.sh
+(venv) ./test.sh
 ```
 
 
