@@ -72,6 +72,21 @@ def remove_tags(html: str):
     return TAG_RE.sub('', html)
 
 
+def truncate(text: str, maxlen: int = 128):
+    if len(text) <= maxlen + 5:
+        return text
+    words = text.split(' ')
+    selected = []
+    extracted_size = 0
+    for word in words:
+        word = word.strip()
+        selected.append(word)
+        extracted_size += len(word) + 1
+        if extracted_size > maxlen:
+            break
+    return ' '.join(selected) + '...'
+
+
 def _xhash(txt='', algorithm='md5'):
     if algorithm == 'ripemd160':
         m = hashlib.new('ripemd160')
