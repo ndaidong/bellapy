@@ -123,6 +123,7 @@ genid(count: int = 16,  prefix: str = '') # return a random string
 slugify(text: str) # create slug from a string
 strip_accents(text: str) # remove accents string
 remove_tags(text: str) # remove HTML tags from a string
+truncate(text: str, maxlen: int) # cut a long string to shorter one
 plurialize(word: str = None, count: int = 1) # return plural format of word
 byte_to_text(bytesize: int, precision: int = 2)
 

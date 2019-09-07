@@ -2,7 +2,7 @@
 
 import pytest
 
-from bella import pluralize, slugify, remove_tags
+from bella import pluralize, slugify, remove_tags, truncate
 
 
 def test_pluralize():
@@ -58,5 +58,32 @@ def test_remove_tags():
         expect = sample['expect']
         if actual != expect:
             pytest.fail('remove_tags(`{}`) must return `{}`, not `{}`'.format(
+                value, expect, actual
+            ))
+
+
+def test_truncate():
+    samples = [
+        dict(
+            value='A useful helper for any python program',
+            expect='A useful helper for any python program'
+        ),
+        dict(
+            value=' '.join([
+                'This document is designed to help system administrators',
+                'and DevOps focused organisations to understand bare metal',
+                'server provisioning, understand its value proposition, and',
+                'learn about how leading companies are using server',
+                'provisioning solutions within their hyperscale environments.'
+            ]),
+            expect='This document is designed to help system administrators...'
+        )
+    ]
+    for sample in samples:
+        value = sample['value']
+        actual = truncate(value, 50)
+        expect = sample['expect']
+        if actual != expect:
+            pytest.fail('truncate(`{}`) must return `{}`, not `{}`'.format(
                 value, expect, actual
             ))
