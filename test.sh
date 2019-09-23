@@ -1,5 +1,5 @@
 #!/bin/bash
 
-pycodestyle ./ --exclude venv --statistics
+flake8 ./ --exclude venv --statistics
 safety check --bare
 pytest --cov=bella test.py

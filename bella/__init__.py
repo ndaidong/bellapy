@@ -15,7 +15,7 @@ from .modules.utime import get_time, get_local_time, get_utc_time, \
 
 from .modules.utils import throttle, timing, jprint, \
     write_json_to_file, read_json_from_file, \
-    byte_to_text, get_base_url, has_installed, \
+    byte_to_text, has_installed, \
     compose, pipe, curry
 
 
@@ -32,6 +32,6 @@ __all__ = [
     get_time, get_local_time, get_utc_time,
     format_time, PY_DATE_PATTERN, MY_DATE_PATTERN,
     throttle, timing, jprint, write_json_to_file, read_json_from_file,
-    byte_to_text, get_base_url, has_installed,
+    byte_to_text, has_installed,
     compose, pipe, curry
 ]
