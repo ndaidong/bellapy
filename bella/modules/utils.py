@@ -4,9 +4,7 @@ import time
 import json
 from typing import Any
 from functools import reduce
-from urllib.parse import urlparse
 from importlib.util import find_spec
-from json import dumps, load
 
 from .logger import log
 from .fs import exists
@@ -19,7 +17,7 @@ def throttle(seconds: int):
         def wrapped(*args, **kwargs):
             nonlocal t
             t_ = time.time()
-            if t is None or t_ - t >= s:
+            if t is None or t_ - t >= seconds:
                 result = f(*args, **kwargs)
                 t = time.time()
                 return result
@@ -45,10 +43,14 @@ def timing(name: str):
 
 def write_json_to_file(file_path: str = '', data: dict = {}):
     try:
-        jstr = dumps(data, indent=2, sort_keys=True, ensure_ascii=False)
         with open(file_path, 'w') as write_file:
-            write_file.write(jstr)
-            write_file.flush()
+            json.dump(
+                data,
+                write_file,
+                indent=2,
+                sort_keys=True,
+                ensure_ascii=False
+            )
         return True
     except Exception as err:
         log('write_json_to_file', file_path, err)
@@ -60,7 +62,7 @@ def read_json_from_file(file_path: str = ''):
     try:
         if exists(file_path):
             with open(file_path, 'r') as read_file:
-                return load(read_file)
+                return json.load(read_file)
     except Exception as err:
         log('read_json_from_file', file_path, err)
         pass
@@ -100,16 +102,6 @@ def byte_to_text(bytesize, precision=2):
     if result <= 0:
         return 0
     return '%.*f %s' % (precision, result, suffix)
-
-
-def get_base_url(url):
-    try:
-        result = urlparse(url)
-        return '://'.join([result.scheme, result.netloc])
-    except Exception as err:
-        log('get_base_url', url)
-        pass
-    return url
 
 
 def has_installed(pkg):
