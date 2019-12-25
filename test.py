@@ -8,3 +8,4 @@ from specs.text_manipulation import test_pluralize, \
     test_slugify, test_remove_tags, test_truncate
 from specs.utils import test_byte_to_text, test_compose, \
     test_pipe, test_curry
+from specs.fs import *
