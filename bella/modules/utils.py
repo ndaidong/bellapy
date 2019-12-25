@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 
 import time
-import json
 from typing import Any
 from functools import reduce
 from importlib.util import find_spec
 
 from .logger import log
 from .fs import exists
+
+
+if find_spec('ujson') is not None:
+    import ujson as json
+else:
+    import json
 
 
 def throttle(seconds: int):
