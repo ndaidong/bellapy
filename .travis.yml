@@ -10,3 +10,4 @@ install:
   - python setup.py install
 script:
   - ./test.sh
+  - coveralls
