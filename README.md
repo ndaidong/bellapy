@@ -183,10 +183,8 @@ save_item(dict(name='Alice'))
 ```bash
 git clone https://github.com/ndaidong/bellapy.git
 cd bellapy
-python3 -m venv venv
-source venv/bin/activate
-(venv) pip install -r requirements.txt
-(venv) ./test.sh
+poetry install
+./test.sh
 ```
 
 

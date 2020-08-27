@@ -6,5 +6,5 @@ ENV = os.getenv('ENV', 'prod')
 
 
 def log(*args):
-    if ENV == 'dev':
+    if ENV != 'prod' and ENV != 'production':
         print(*args)
