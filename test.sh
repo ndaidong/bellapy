@@ -1,6 +1,5 @@
 #!/bin/bash
-flake8 ./ --exclude venv,build,dist --statistics
-safety check --bare
+poetry run flake8 ./ --exclude venv,build,dist --statistics
 mkdir storage
-pytest --cov=bella test.py
+poetry run pytest --cov=bella test.py
 rm -rf storage
