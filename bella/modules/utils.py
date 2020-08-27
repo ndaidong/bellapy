@@ -79,7 +79,10 @@ def jprint(data: Any, sorting=True, identation=2):
         if type(data) is str:
             data = json.loads(data)
         return print(json.dumps(
-            data, sort_keys=sorting, indent=identation
+            data,
+            sort_keys=sorting,
+            indent=identation,
+            ensure_ascii=False
         ))
     except Exception as err:
         log('jprint', err)
