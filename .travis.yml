@@ -1,13 +1,9 @@
 language: python
 python:
-  - "3.6"
-  - "3.7"
   - "3.8"
-  - "nightly"
 install:
   - pip install poetry
   - poetry install
-  - poetry build
 script:
-  - ./test.sh
+  - ./run_test.sh
   - coveralls

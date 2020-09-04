@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import os
-
 from .modules import fs
 
 from .modules.detector import is_int, is_num, is_float, is_str, \
@@ -17,11 +15,6 @@ from .modules.utils import throttle, timing, jprint, \
     write_json_to_file, read_json_from_file, \
     byte_to_text, has_installed, \
     compose, pipe, curry
-
-
-def version():
-    full_path = os.path.dirname(os.path.realpath(__file__))
-    return open(full_path + '/VERSION').read().strip()
 
 
 __all__ = [
