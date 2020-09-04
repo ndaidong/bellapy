@@ -14,7 +14,7 @@ def get_time(ms=False):
     return t if ms is False else int(t)
 
 
-def format_time(d=datetime.now(), pattern=PY_DATE_PATTERN):
+def format_time(d, pattern=PY_DATE_PATTERN):
     if is_num(d):
         d = datetime.fromtimestamp(d)
     return d.strftime(pattern)

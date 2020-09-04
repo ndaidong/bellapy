@@ -2,7 +2,11 @@
 
 import pytest
 
-from bella import byte_to_text, curry, compose, pipe
+from bella import byte_to_text, curry, compose, pipe, \
+    write_json_to_file, read_json_from_file, fs, is_dict
+
+
+TMPDIR = 'ptester'
 
 
 def test_byte_to_text():
@@ -111,3 +115,18 @@ def test_pipe():
         pytest.fail('add1AndMult2(`{}`) must return `{}`, not `{}`'.format(
             value, expect, actual
         ))
+
+
+def test_write_json_to_file():
+    fpath = f'{TMPDIR}/test-json'
+    data = {'name': 'bella'}
+    write_json_to_file(fpath, data)
+    if not fs.exists(fpath):
+        pytest.fail(f'"{fpath}" must be created')
+
+
+def test_read_json_from_file():
+    fpath = f'{TMPDIR}/test-json'
+    data = read_json_from_file(fpath)
+    if not is_dict(data):
+        pytest.fail('JSON data must be dict')

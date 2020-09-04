@@ -54,7 +54,8 @@ def write_json_to_file(file_path: str = '', data: dict = {}):
                 write_file,
                 indent=2,
                 sort_keys=True,
-                ensure_ascii=False
+                ensure_ascii=False,
+                escape_forward_slashes=False
             )
         return True
     except Exception as err:
@@ -74,15 +75,16 @@ def read_json_from_file(file_path: str = ''):
     return {}
 
 
-def jprint(data: Any, sorting=True, identation=2):
+def jprint(data: Any):
     try:
         if type(data) is str:
             data = json.loads(data)
         return print(json.dumps(
             data,
-            sort_keys=sorting,
-            indent=identation,
-            ensure_ascii=False
+            indent=2,
+            sort_keys=True,
+            ensure_ascii=False,
+            escape_forward_slashes=False
         ))
     except Exception as err:
         log('jprint', err)
