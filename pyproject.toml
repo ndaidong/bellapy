@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bella"
-version = "2.1.4"
+version = "2.1.5"
 description = "BellaPy - A useful helper for any python program"
 authors = ["Dong Nguyen <ndaidong@gmail.com>"]
 maintainers = ["Dong Nguyen <ndaidong@gmail.com>"]
@@ -15,6 +15,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
+ujson = "^4.0.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.0.1"
