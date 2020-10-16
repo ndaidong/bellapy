@@ -8,11 +8,7 @@ from importlib.util import find_spec
 from .logger import log
 from .fs import exists
 
-
-if find_spec('ujson') is not None:
-    import ujson as json
-else:
-    import json
+import ujson as json
 
 
 def throttle(seconds: int):
