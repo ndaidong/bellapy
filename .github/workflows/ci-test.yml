@@ -1,0 +1,32 @@
+# GitHub actions
+# https://docs.github.com/en/free-pro-team@latest/actions
+
+name: ci-test
+
+on: [pull_request]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        python-version: [3.x]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+        architecture: x64
+
+    - name: run setup
+      run: |
+        pip install poetry
+        poetry install
+        ./run_test.sh
+
+
