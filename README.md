@@ -3,7 +3,6 @@ BellaPy - A useful helper for any python program
 
 [![PyPI version](https://badge.fury.io/py/bella.svg)](https://badge.fury.io/py/bella)
 ![CI test](https://github.com/ndaidong/bellapy/workflows/ci-test/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/ndaidong/bellapy/badge.svg?branch=master)](https://coveralls.io/github/ndaidong/bellapy?branch=master)
 ![CodeQL](https://github.com/ndaidong/bellapy/workflows/CodeQL/badge.svg)
 
 
