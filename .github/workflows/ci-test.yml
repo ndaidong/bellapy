@@ -27,7 +27,7 @@ jobs:
       run: |
         pip install poetry
         poetry install
-        ./run-test.sh
+        ./run_test.sh
 
     - name: sync to coveralls
       uses: coverallsapp/github-action@v1.1.2
