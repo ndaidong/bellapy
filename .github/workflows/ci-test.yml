@@ -1,0 +1,39 @@
+# GitHub actions
+# https://docs.github.com/en/free-pro-team@latest/actions
+
+name: ci-test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11-dev']
+
+    name: Python ${{ matrix.python-version }} sample
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+      - run: python -V
+
+    - name: run setup
+      run: |
+        pip install poetry
+        poetry install
+        ./run-test.sh
+
+    - name: sync to coveralls
+      uses: coverallsapp/github-action@v1.1.2
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+
+
+

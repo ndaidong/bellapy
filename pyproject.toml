@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bella"
-version = "2.1.5"
+version = "2.1.6"
 description = "BellaPy - A useful helper for any python program"
 authors = ["Dong Nguyen <ndaidong@gmail.com>"]
 maintainers = ["Dong Nguyen <ndaidong@gmail.com>"]
@@ -14,15 +14,15 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
-ujson = "^4.0.1"
+python = "^3.10"
+ujson = "^5.4.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.0.1"
-coveralls = "^2.1.2"
-flake8 = "^3.8.3"
-pytest-cov = "^2.10.1"
+pytest = "^7.1.2"
+coveralls = "^3.3.1"
+flake8 = "^4.0.1"
+pytest-cov = "^3.0.0"
 
 [build-system]
-requires = ["poetry>=0.12"]
+requires = ["poetry>=1.1"]
 build-backend = "poetry.masonry.api"
