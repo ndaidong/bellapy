@@ -27,3 +27,6 @@ safety = "^2.1.1"
 [build-system]
 requires = ["poetry>=1.1"]
 build-backend = "poetry.masonry.api"
+
+[tool.coverage.run]
+relative_files = true
