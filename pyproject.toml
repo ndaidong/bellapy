@@ -22,6 +22,7 @@ pytest = "^7.1.2"
 coveralls = "^3.3.1"
 flake8 = "^4.0.1"
 pytest-cov = "^3.0.0"
+safety = "^2.1.1"
 
 [build-system]
 requires = ["poetry>=1.1"]
