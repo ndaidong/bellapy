@@ -29,10 +29,9 @@ jobs:
         poetry install
         ./run_test.sh
 
-    - name: sync to coveralls
-      uses: coverallsapp/github-action@v1.1.2
+    - name: Coveralls
+      uses: AndreMiras/coveralls-python-action@develop
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: coverage.xml
+        parallel-finished: true
 
 
